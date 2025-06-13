@@ -159,7 +159,7 @@ def main():
                 print(f"\n{Colors.GREEN}SAMPAI JUMPA KEMBALI!{Colors.RESET}")
                 sys.exit(0)
                 
-            elif command_type in ["TLS", "FLOOD", "HOLD"]:
+            elif command_type in ["TLS", "FLOOD", "HOLD", "HTTP3"]:
                 try:
                     url = cmd[1]
                     time = cmd[2]
