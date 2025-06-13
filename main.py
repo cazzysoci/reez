@@ -86,7 +86,7 @@ class AttackManager:
         
         # Parameter yang dioptimasi
         rate = "10000"  # requests per detik
-        threads = "50"  # jumlah thread
+        threads = "20"  # jumlah thread
         
         try:
             # Validasi waktu
